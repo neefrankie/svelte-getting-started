@@ -8,8 +8,6 @@
 
   let count = 0;
 
-  $: doubled = count * 2;
-
   function handleClick() {
     count += 1;
   }
@@ -51,6 +49,9 @@
   function handleMessage(event) {
     alert(event.detail.text);
   }
+
+  let a = 1;
+  let b = 2;
 </script>
 
 <main>
@@ -59,7 +60,10 @@
   {:else}
     <button on:click={toggle}>Log in</button>
   {/if}
+
 	<h1>Hello {name}!</h1>
+  <input type="text" bind:value={name}/>
+
 	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
 
   <div on:mouseover="{handleMouseover}">
@@ -70,8 +74,6 @@
   <Nested/>
 
   <button on:click={handleClick}>Clicked {count} {count === 1 ? 'time' : 'times'}</button>
-
-  <p>{count} doubled is {doubled}</p>
 
   <ul>
     {#each cats as cat, i}
@@ -88,6 +90,14 @@
   {/each}
 
   <Inner on:message={handleMessage}/>
+
+  <div>
+    <input type="number" bind:value={a} min=0 max=10>
+  </div>
+  <div>
+    <input type="range" bind:value={b} min=0, max=10>
+  </div>
+  <p>{a} + {b} = {a + b}</p>
 </main>
 
 <style lang="scss">
