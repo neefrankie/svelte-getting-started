@@ -2,6 +2,16 @@
   import Nested from './Nested.svelte';
   import Thing from './Thing.svelte';
   import Inner from './Inner.svelte';
+  import Checkbox from './Checkbox.svelte';
+  import GroupInput from './GroupInput.svelte';
+  import Textarea from './Textarea.svelte';
+  import Select from './Select.svelte';
+  import SelectMultiple from './SelectMultiple.svelte';
+  import ContentEditable from './ContentEditable.svelte';
+  import Media from './Media.svelte';
+  import OnMount from './OnMount.svelte';
+  import DecrIncr from './DecrIncr/DecrIncr.svelte';
+  import Box from './Box.svelte';
 
   export let name;
   const src = "http://placekitten.com/200/300";
@@ -98,6 +108,29 @@
     <input type="range" bind:value={b} min=0, max=10>
   </div>
   <p>{a} + {b} = {a + b}</p>
+
+  <Checkbox/>
+
+  <GroupInput/>
+
+  <Textarea/>
+
+  <Select/>
+
+  <SelectMultiple/>
+
+  <ContentEditable/>
+
+  <Media/>
+
+  <OnMount/>
+
+  <DecrIncr/>
+
+  <Box>
+    <h2>Hello!</h2>
+    <p>This is a box. It can contain anything.</p>
+  </Box>
 </main>
 
 <style lang="scss">
