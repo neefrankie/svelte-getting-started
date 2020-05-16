@@ -12,6 +12,7 @@
   import OnMount from './OnMount.svelte';
   import DecrIncr from './DecrIncr/DecrIncr.svelte';
   import Box from './Box.svelte';
+  import { time, elapsed } from './readable-store.ts';
 
   export let name;
   const src = "http://placekitten.com/200/300";
@@ -62,6 +63,13 @@
 
   let a = 1;
   let b = 2;
+
+  const formatter = new Intl.DateTimeFormat('en', {
+    hour12: true,
+    hour: 'numeric',
+    minute: '2-digit',
+    second: '2-digit'
+  });
 </script>
 
 <main>
@@ -131,6 +139,12 @@
     <h2>Hello!</h2>
     <p>This is a box. It can contain anything.</p>
   </Box>
+
+  <h1>The time is {formatter.format($time)}</h1>
+
+  <p>
+    This page has been open for {$elapsed} {$elapsed === 1 ? 'second' : 'seconds'}
+  </p>
 </main>
 
 <style lang="scss">

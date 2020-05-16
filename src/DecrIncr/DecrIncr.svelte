@@ -1,4 +1,5 @@
 <script lang="typescript">
+import { onDestroy } from 'svelte';
 import { count } from './store.ts';
 import Incrementer from './Increment.svelte';
 import Decrementer from './Decrement.svelte';
@@ -10,6 +11,7 @@ const unsubscribe = count.subscribe(value => {
   count_value = value;
 });
 
+onDestroy(unsubscribe);
 </script>
 
 <h1>The count is {count_value}</h1>
